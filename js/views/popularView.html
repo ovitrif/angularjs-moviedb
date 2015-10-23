@@ -1,0 +1,41 @@
+<div class="container">
+	<div class="popular-movies row">
+
+		<h2>
+			<i class="fa fa-film"></i>
+			Popular Movies
+			<img class="tmdb" src="https://assets.tmdb.org/images/logos/var_4_0_tmdb-logo-1Line-Blk-Bree.svg" alt="V4.0 (SVG)">
+		</h2>
+		<ul class="movies-thumb-list clearfix">
+
+			<li class="movie-item fade-anim" ng-repeat="movie in moviesList | filter: query">
+				<h3>{{movie.title}}</h3>
+				<img ng-src="http://image.tmdb.org/t/p/w370/{{movie.poster_path}}" />
+
+				<strong class="movie-rating movie-info">
+					<i class="fa fa-star"></i>
+					{{movie.vote_average}}
+				</strong>
+				<strong class="movie-date movie-info">
+					<i class="fa fa-clock-o"></i>
+					{{movie.release_date}}
+				</strong>
+				<p class="movie-plot">
+					<i class="fa fa-info-circle"></i>
+					{{movie.overview}}
+				</p>
+			</li>
+
+		</ul>
+
+		<p ng-show="moviesList.length == 0">loading movies...</p>
+
+	</div>
+</div>
+
+<div class="load-more-wrapper">
+	<button ng-click="getMoviesList()" ng-hide="moviesList.length == 0" class="load-more">
+		<i class="fa fa-film"></i>
+		Load More
+	</button>
+</div>
