@@ -1,0 +1,71 @@
+<div class="container">
+  <div class="single-movie row">
+
+    <div class="col-sm-5 movie-poster">
+      <img ng-src="http://image.tmdb.org/t/p/w370/{{movieData.poster_path}}" />
+    </div><!-- .col-sm-5 -->
+    <div class="col-sm-7">
+      <h2>
+        <i class="fa fa-film"></i>
+        {{movieData.title}}
+        <span class="tmdb">
+          <img alt="tmdb"
+               src="//assets.tmdb.org/images/logos/var_4_0_tmdb-logo-1Line-Blk-Bree.svg">
+        </span>
+      </h2>
+
+      <ul class="movie-data-list row list-unstyled">
+
+        <li class="col-md-5">
+          <ul class="list-unstyled">
+            <li>
+              <a href="{{movieData.homepage}}" title="{{movieData.title}}" target="_blank">
+                <i class="fa fa-external-link-square"></i>
+                <strong>Movie website</strong>
+                <span class="sr-only">{{movieData.title}}</span>
+              </a>
+            </li>
+            <li>
+              <strong>Release date:</strong>
+              {{movieData.release_date}}
+            </li>
+            <li>
+              <strong>Duration:</strong>
+              {{movieData.runtime}}.
+            </li>
+            <li>
+              <strong>Genre:</strong>
+              {{movieData.genres}}.
+            </li>
+            <li>
+              <strong>Rating:</strong>
+              {{movieData.vote_average}}
+            </li>
+            <li>
+              <strong>Popularity:</strong>
+              {{movieData.popularity}}
+            </li>
+            <li>
+              <strong>Budget:</strong>
+              <strong>&#36;</strong>
+              {{movieData.budget}}
+            </li>
+            <li>
+              <strong>Revenue:</strong>
+              <strong>&#36;</strong>
+              {{movieData.revenue}}
+            </li>
+          </ul>
+        </li>
+
+        <li class="col-md-7">
+          <strong>Plot:</strong>
+          <p>{{movieData.overview}}</p>
+        </li>
+
+      </ul>
+
+    </div><!-- .col-sm-7 -->
+
+  </div>
+</div>

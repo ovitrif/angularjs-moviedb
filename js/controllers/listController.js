@@ -1,4 +1,8 @@
-movieApp.controller( 'popularController', ['$scope', '$http',
+'use strict';
+
+/* Popular Movies Controller */
+
+movieApp.controller( 'listController', ['$scope', '$http',
   function ($scope, $http) {
 
     var page = 0;
@@ -6,10 +10,21 @@ movieApp.controller( 'popularController', ['$scope', '$http',
 
     $scope.getMoviesList = function() {
 
-      var url = $apiEndpoint + '&page=' + ++page;
+      var url = $apiEndpoint + 'popular',
+          $responsePromise;
 
       // Get data from API
-      $responsePromise = $http({ method: 'GET', url: url });
+      $responsePromise = $http({
+        method: 'GET',
+        url: url,
+        params: {
+          api_key: $apiKey,
+          page: ++page
+        }
+       });
+
+      // TODO: use new method (the current one is deprecated)
+      // SEE:  //code.angularjs.org/1.4.7/docs/api/ng/service/$http#deprecation-notice
       $responsePromise
         .success(function (data, status, headers, config) {
 

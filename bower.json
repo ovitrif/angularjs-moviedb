@@ -1,7 +1,7 @@
 {
   "name": "angular-moviedb",
-  "description": "A basic app in AngularJS",
-  "version": "0.0.0",
+  "description": "A basic app in AngularJS using themoviedb.org API",
+  "version": "0.1.0",
   "license": "MIT",
   "private": true,
   "dependencies": {

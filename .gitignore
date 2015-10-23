@@ -27,6 +27,10 @@ node_modules
 # Users Environment Variables
 .lock-wscript
 
+# Bower
+# Commenting this out is preferred by some people
+bower_components
+
 # =========================
 # Operating System Files
 # =========================

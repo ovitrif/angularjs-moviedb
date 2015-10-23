@@ -155,6 +155,17 @@ button {
         opacity: 1;
         bottom: 0; }
 
+.single-movie h2 {
+  margin-bottom: 1.75em; }
+.single-movie .movie-poster {
+  overflow: hidden; }
+  .single-movie .movie-poster img {
+    width: 100%; }
+.single-movie .movie-data-list {
+  font-size: 1.2em; }
+  .single-movie .movie-data-list li {
+    margin-bottom: 0.5em; }
+
 .load-more-wrapper {
   text-align: center;
   margin-top: 2em;
@@ -181,8 +192,9 @@ button {
     color: #050c0b; }
 
 .tmdb {
-  float: right;
-  width: 100px; }
+  float: right; }
+  .tmdb img {
+    width: 100px; }
 
 .fade-anim.ng-enter,
 .fade-anim.ng-leave {

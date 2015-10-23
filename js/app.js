@@ -1,8 +1,10 @@
 'use strict';
 
-var $apiEndpoint = 'https://api.themoviedb.org/3/movie/popular?api_key=549d9cee00ec185e5af7b4b4815a65ba',
+var $apiEndpoint  = 'https://api.themoviedb.org/3/movie/',
+    $apiKey = '549d9cee00ec185e5af7b4b4815a65ba',
     $error_noData = 'Uups! No connection to the database.',
-    $moviesData; // Used to store data for debugging [TODO: remove in production, also from popularController.js:22 ]
+    $moviesData, // Used to store data for debugging [TODO: remove in production, also from listController.js:37 ]
+    $singleData; // Used to store data for debugging [TODO: remove in production, also from singleController.js:55 ]
 
 
 // Angular App
@@ -22,12 +24,16 @@ movieApp
     function ($routeProvider) {
 
       $routeProvider
-        .when( '/', {
-          controller: 'popularController',
-          templateUrl: 'js/views/popularView.html'
+        .when( '/movies', {
+          controller: 'listController',
+          templateUrl: 'js/views/main.html'
+        })
+        .when('/movies/:movieId', {
+          controller: 'singleController',
+          templateUrl: 'js/views/single.html'
         })
 
-      $routeProvider.otherwise( {'redirectTo': '/'} );
+      $routeProvider.otherwise( {'redirectTo': '/movies'} );
     }
   ]);
 
