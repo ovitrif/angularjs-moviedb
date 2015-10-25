@@ -2,10 +2,10 @@
 
 /* Root Controller */
 
-movieApp.controller('RootController', ['$scope', '$http' ,
+movieApp.controller('RootController', ['$scope',
   function ($scope) {
 
-    $scope.message = 'movieApp';
+    $scope.appTitle = 'movieApp';
 
   }
 ])

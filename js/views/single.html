@@ -1,8 +1,16 @@
+<div class="button-container">
+
+  <a href="./#/" class="button-back" title="Go back to home page.">
+    <i class="fa fa-angle-left"></i>
+  </a>
+
+</div>
+
 <div class="container">
   <div class="single-movie row">
 
     <div class="col-sm-5 movie-poster">
-      <img ng-src="http://image.tmdb.org/t/p/w370/{{movieData.poster_path}}" />
+      <img ng-src="http://image.tmdb.org/t/p/w370/{{movieData.poster_path}}" alt="{{movieData.title}}" />
     </div><!-- .col-sm-5 -->
     <div class="col-sm-7">
       <h2>

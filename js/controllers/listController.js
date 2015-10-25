@@ -2,51 +2,65 @@
 
 /* Popular Movies Controller */
 
-movieApp.controller( 'listController', ['$scope', '$http',
-  function ($scope, $http) {
+movieApp.controller( 'listController', ['$scope', '$http', '$routeParams',
+  function ($scope, $http, $routeParams) {
 
-    var page = 0;
+    var page = 0,
+        $url = $apiEndpoint,
+        $date = new Date();
     $scope.moviesList = [];
+
+    // Set up URL and Page Heading
+    switch ($routeParams.page) {
+      case 'now-playing':
+        $url += 'movie/now_playing';
+        $scope.pageHeading = 'Now Playing in Theaters';
+        break;
+      case 'top-box-office':
+        $url += 'discover/movie?primary_release_year='+$date.getFullYear()+'&sort_by=revenue.desc';
+        $scope.pageHeading = 'Highest Grossing Movies of 2015';
+        break;
+      case 'top-rated':
+        $url += 'movie/top_rated';
+        $scope.pageHeading = 'Top Rated Movies';
+        break;
+      default:
+        $url += 'movie/popular';
+        $scope.pageHeading = 'Popular Movies';
+    }
 
     $scope.getMoviesList = function() {
 
-      var url = $apiEndpoint + 'popular',
-          $responsePromise;
+      var $responsePromise;
 
       // Get data from API
       $responsePromise = $http({
         method: 'GET',
-        url: url,
+        url: $url,
         params: {
           api_key: $apiKey,
           page: ++page
         }
        });
 
-      // TODO: use new method (the current one is deprecated)
-      // SEE:  //code.angularjs.org/1.4.7/docs/api/ng/service/$http#deprecation-notice
-      $responsePromise
-        .success(function (data, status, headers, config) {
+      // Process requestss
+      $responsePromise.then(
+        function successCallback(response) {
 
-          if (status==200) {
-            // Pagination Setup
-            page = data.page;
-            // Append new movies to the list
-            $scope.moviesList.push.apply( $scope.moviesList, data.results );
+          // Pagination Setup
+          page = response.data.page;
+          // Append new movies to the list
+          $scope.moviesList.push.apply( $scope.moviesList, response.data.results );
 
-            window.$moviesData = $scope.moviesList; // TODO: delete in production
-          } else {
-            console.error( $error_noData );
-          };
+          window.$moviesData = $scope.moviesList; // TODO: delete in production
 
-        })
-        .error(function (data, status, headers, config) {
+        }, function errorCallback() {
           console.error( $error_noData );
-        });
-    };
+        }
+      );
+    }
 
     // Calling the function
     $scope.getMoviesList();
-
   }
 ])

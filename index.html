@@ -2,8 +2,11 @@
 <html ng-app="movieApp">
 <head>
 	<title>movieApp &middot; angular</title>
-	<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+	<meta charset="utf-8" />
 
+	<!--[if lt IE 9]>
+		<script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
+	<![endif]-->
 	<link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=RobotoDraft:100,300,400,400italic,500,700">
 	<link rel="stylesheet" type="text/css" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
@@ -25,50 +28,33 @@
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 			</button>
-			<a class="navbar-brand" href="javascript:void(0);">{{message}}</a>
+			<a class="navbar-brand" href="./#/">
+				<i class="fa fa-home"></i>
+				{{appTitle}}
+			</a>
 			</div>
 
 			<nav id="main-menu" class="navbar-collapse collapse">
+
+				<ul class="nav navbar-nav">
+					<li class="menu-popular-movies"><a href="./#/">Popular</a></li>
+					<li class="menu-now-playing"><a href="./#/now-playing">Now Playing</a></li>
+					<li class="menu-latest-movies"><a href="./#/top-rated">Top Rated</a></li>
+					<li class="menu-top-rated"><a href="./#/top-box-office">Highest Grossing</a></li>
+				</ul>
 				<ul class="nav navbar-nav navbar-right">
-					<li class="home"><a href="https://docs.angularjs.org/guide/introduction">Angular Guide</a></li>
+					<li class="angular-guide"><a href="//docs.angularjs.org/guide/introduction">Angular Guide</a></li>
 				</ul>
 			</nav>
 
 		</div>
   </div>
 </header>
-<div class="video-hero">
-	<video preload="metadata" autoplay="autoplay" loop="loop" muted="muted">
-		<source src="//html5demos.com/assets/dizzy.mp4" type="video/mp4">
-		<source src="//html5demos.com/assets/dizzy.webm" type="video/webm">
-		<source src="//html5demos.com/assets/dizzy.ogv" type="video/ogg">
-	</video>
+<div class="section-hero"></div>
+
+<div class="view-container">
+	<div id="page-main" ng-view=""></div>
 </div>
-
-<div id="page-main">
-
-	<div class="search-movies class="container"">
-
-		<div class="search-wrapper">
-				<input name="s" class="search" type="text" placeholder="Filter movies..." ng-model="query" />
-
-				<button id="do-search" type="submit" disabled="disabled">
-					<i class="fa fa-search"></i>
-					Search
-				</button>
-
-				<p class="search-hint">
-					<i class="fa fa-search"></i>
-					Enter a <strong>movie title</strong> to search for:
-				</p>
-		</div><!-- .search-wrapper -->
-
-	</div>
-
-	<div ng-view=""></div>
-
-</div><!-- page-main -->
-
 
 <!-- /content -->
 <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>

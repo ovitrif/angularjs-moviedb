@@ -1,6 +1,6 @@
 'use strict';
 
-var $apiEndpoint  = 'https://api.themoviedb.org/3/movie/',
+var $apiEndpoint  = 'https://api.themoviedb.org/3/',
     $apiKey = '549d9cee00ec185e5af7b4b4815a65ba',
     $error_noData = 'Uups! No connection to the database.',
     $moviesData, // Used to store data for debugging [TODO: remove in production, also from listController.js:37 ]
@@ -24,7 +24,7 @@ movieApp
     function ($routeProvider) {
 
       $routeProvider
-        .when( '/movies', {
+        .when( '/:page', {
           controller: 'listController',
           templateUrl: 'js/views/main.html'
         })
@@ -33,7 +33,7 @@ movieApp
           templateUrl: 'js/views/single.html'
         })
 
-      $routeProvider.otherwise( {'redirectTo': '/movies'} );
+      $routeProvider.otherwise( {'redirectTo': '/popular'} );
     }
   ]);
 

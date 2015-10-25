@@ -1,191 +1,224 @@
+html {
+  height: 101%; }
+
 body {
+  font-family: RobotoDraft, 'Helvetica Neue', sans-serif;
+  line-height: 1.8;
   width: 100%;
   margin: 0;
-  background: #fff;
-  font-family: RobotoDraft, "Helvetica Neue", sans-serif;
-  line-height: 1.6;
+  padding-bottom: 5em;
   color: #444;
-  padding-bottom: 7.5em; }
+  background: #fff; }
 
-.video-hero {
+.section-hero {
   position: relative;
-  width: 100%;
-  height: 200px;
   overflow: hidden;
+  width: 100%;
+  height: 150px;
   color: #fff;
-  background: linear-gradient(to bottom, #76B4E0 0%, #B2D8F3 100%) #76B4E0; }
-  .video-hero video {
-    position: absolute;
-    top: 0;
-    left: 0;
-    min-width: 100%;
-    min-height: 100%;
-    z-index: 2;
-    opacity: 0.05; }
+  background: linear-gradient(to bottom, #0083e0 0%, #a99aff 100%) #0083e0; }
 
 #page-main {
   position: relative; }
 
 #main-navbar {
-  background: rgba(0, 0, 0, 0.15);
+  transition: all .25s;
   border: 0;
-  transition: all 0.25s; }
+  background: #1072c2; }
   #main-navbar a {
-    color: #eee; }
+    font-size: .95em;
+    font-weight: 500;
+    color: #eee;
+    outline: none; }
+    #main-navbar a.navbar-brand {
+      font-size: 1em;
+      font-weight: 700;
+      padding-right: 2.5em;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: #fff; }
     #main-navbar a:hover, #main-navbar a:focus {
       color: #fff; }
   #main-navbar .navbar-toggle .icon-bar {
     background: #fff; }
   #main-navbar.scrolled {
-    background: rgba(60, 60, 60, 0.975); }
+    background: rgba(16, 114, 194, 0.95); }
 
 a {
-  outline: none;
-  transition: all 0.25s; }
+  transition: all .25s;
+  text-decoration: none !important;
+  outline: none; }
 
-button {
-  outline: none;
-  transition: all 0.2s; }
-  button:active {
+button:not(#do-search) {
+  transition: all .2s;
+  outline: none; }
+  button:not(#do-search):active {
     margin-top: 1px; }
 
 .search-movies .search {
+  font-size: 2.5em;
+  font-weight: 300;
   position: absolute;
+  z-index: 100;
   top: -50px;
   left: 50%;
   width: 60%;
-  margin-left: -30%;
   height: 100px;
-  font-size: 2.5em;
-  font-weight: 300;
-  border: none;
-  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.2), 0 5px 35px 0 rgba(0, 0, 0, 0.1);
-  z-index: 100;
+  margin-left: -30%;
   padding: 1em 4em 1em 30px;
-  outline: none; }
+  border: none;
+  outline: none;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.2), 0 5px 35px 0 rgba(0, 0, 0, 0.1); }
 .search-movies .search-hint {
-  position: absolute;
-  display: block;
-  width: 58%;
-  left: 50%;
-  margin-left: -29%;
-  height: 1em;
-  top: -80px;
-  z-index: 101;
-  color: #fff;
   font-size: 1.175em;
-  height: 2em;
-  white-space: nowrap;
+  position: absolute;
+  z-index: 101;
+  top: -80px;
+  left: 50%;
+  display: block;
   overflow: hidden;
-  text-overflow: ellipsis; }
+  width: 58%;
+  height: 1em;
+  height: 2em;
+  margin-left: -29%;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  color: #fff; }
 .search-movies #do-search {
   position: absolute;
-  background: none;
-  border: none;
-  box-shadow: none;
-  right: 22.5%;
   z-index: 101;
   top: -10px;
-  color: #aaa; }
-  .search-movies #do-search:hover, .search-movies #do-search:focus {
-    color: #333; }
+  right: 22.5%;
+  color: #aaa;
+  border: none;
+  background: none;
+  box-shadow: none; }
 .search-movies .search-wrapper {
   height: 50px;
   margin-bottom: 3em; }
 
-.popular-movies {
+.list-movies {
   padding: 2.5em 1.5em; }
-  .popular-movies h2 {
+  .list-movies h2 {
     margin-bottom: 1em; }
-  .popular-movies .movies-thumb-list {
-    padding: 0;
-    margin: 0; }
-    .popular-movies .movies-thumb-list .movie-item {
+  .list-movies .movies-thumb-list {
+    margin: 0;
+    padding: 0; }
+    .list-movies .movies-thumb-list .movie-item {
       position: relative;
-      padding: 0;
-      margin: 0 0 3em;
-      list-style: none;
       float: left;
+      overflow: hidden;
       width: 25%;
-      overflow: hidden; }
-      .popular-movies .movies-thumb-list .movie-item h3 {
-        width: 100%;
+      height: 450px;
+      margin: 0 0 3em;
+      padding: 0;
+      list-style: none; }
+      .list-movies .movies-thumb-list .movie-item h3 {
+        font-size: 1.2em;
+        font-weight: 400;
         overflow: hidden;
-        text-overflow: ellipsis;
-        white-space: nowrap;
-        padding: 0.5em 0;
-        margin: 0;
-        font-weight: 300; }
-      .popular-movies .movies-thumb-list .movie-item img {
         width: 100%;
-        opacity: 0.8;
-        transition: opacity 0.35s; }
-      .popular-movies .movies-thumb-list .movie-item .movie-info {
-        position: absolute;
-        left: 5%;
-        z-index: 1;
-        color: #fff;
-        text-shadow: 0 0 1px rgba(0, 0, 0, 0.95), 0 1px 4px rgba(0, 0, 0, 0.75);
-        opacity: 0;
-        transition: all 0.25s;
-        top: 45px;
-        text-transform: uppercase; }
-      .popular-movies .movies-thumb-list .movie-item .movie-plot {
-        position: absolute;
-        left: 0;
-        bottom: -25px;
         margin: 0;
-        line-height: 1.25;
-        padding: 1.25em;
-        background: rgba(255, 255, 255, 0.9);
-        font-weight: 500;
-        transition: all 0.25s;
-        transition-delay: 0.25s;
+        padding: .5em 0;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        color: #333; }
+      .list-movies .movies-thumb-list .movie-item img {
+        width: 100%;
+        height: 420px;
+        transition: opacity .35s;
+        opacity: .8; }
+      .list-movies .movies-thumb-list .movie-item .movie-info {
+        position: absolute;
+        z-index: 1;
+        top: 45px;
+        left: 5%;
+        transition: all .25s;
+        text-transform: uppercase;
         opacity: 0;
-        max-height: 72.5%; }
-      .popular-movies .movies-thumb-list .movie-item:hover img {
+        color: #fff;
+        text-shadow: 0 0 1px rgba(0, 0, 0, 0.95), 0 1px 4px rgba(0, 0, 0, 0.75); }
+      .list-movies .movies-thumb-list .movie-item .movie-plot {
+        font-weight: 500;
+        line-height: 1.3;
+        position: absolute;
+        bottom: -25px;
+        left: 0;
+        max-height: 72.5%;
+        margin: 0;
+        padding: 1.25em;
+        transition: all .25s;
+        transition-delay: .25s;
+        opacity: 0;
+        color: #333;
+        background: rgba(255, 255, 255, 0.9); }
+      .list-movies .movies-thumb-list .movie-item:hover img {
         opacity: 1; }
-      .popular-movies .movies-thumb-list .movie-item:hover .movie-info {
+      .list-movies .movies-thumb-list .movie-item:hover .movie-info {
         opacity: 1; }
-      .popular-movies .movies-thumb-list .movie-item:hover .movie-rating {
+      .list-movies .movies-thumb-list .movie-item:hover .movie-rating {
         top: 60px; }
-      .popular-movies .movies-thumb-list .movie-item:hover .movie-date {
+      .list-movies .movies-thumb-list .movie-item:hover .movie-date {
         top: 80px; }
-      .popular-movies .movies-thumb-list .movie-item:hover .movie-plot {
-        opacity: 1;
-        bottom: 0; }
+      .list-movies .movies-thumb-list .movie-item:hover .movie-plot {
+        bottom: 0;
+        opacity: 1; }
 
-.single-movie h2 {
-  margin-bottom: 1.75em; }
-.single-movie .movie-poster {
-  overflow: hidden; }
-  .single-movie .movie-poster img {
-    width: 100%; }
-.single-movie .movie-data-list {
-  font-size: 1.2em; }
-  .single-movie .movie-data-list li {
-    margin-bottom: 0.5em; }
+.single-movie {
+  margin-top: 5em; }
+  .single-movie h2 {
+    margin-bottom: 1.75em; }
+  .single-movie .movie-poster {
+    overflow: hidden; }
+    .single-movie .movie-poster img {
+      width: 100%; }
+  .single-movie .movie-data-list {
+    font-size: 1.2em; }
+    .single-movie .movie-data-list li {
+      margin-bottom: .5em; }
+
+.button-container {
+  position: absolute;
+  top: -40px;
+  right: 0;
+  width: 100%;
+  text-align: center; }
+  .button-container .button-back {
+    font-size: 2.5em;
+    line-height: 80px;
+    display: inline-block;
+    width: 80px;
+    height: 80px;
+    text-indent: -.05em;
+    color: #333;
+    border-radius: 40px;
+    background: #fff;
+    box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.5); }
+    .button-container .button-back:hover, .button-container .button-back:focus {
+      box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.25); }
+    .button-container .button-back:active {
+      box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.5); }
 
 .load-more-wrapper {
-  text-align: center;
   margin-top: 2em;
   padding-top: 2em;
+  text-align: center;
   border-top: 1px solid #ddd; }
 
 .load-more {
-  background: transparent;
-  border: 3px solid;
-  padding: 1em 2em;
-  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.1);
-  margin: 0;
-  color: inherit;
-  font-weight: 700;
-  color: #46B0AA;
   font-size: 1.5em;
-  text-transform: uppercase;
+  font-weight: 700;
+  width: 50%;
+  margin: 0;
+  padding: 1em 2em;
   letter-spacing: 2px;
+  text-transform: uppercase;
+  color: inherit;
+  color: #46b0aa;
+  border: 3px solid;
   outline: none;
-  width: 50%; }
+  background: transparent;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.1); }
   .load-more:hover, .load-more:focus {
     color: #307975; }
   .load-more:active {
@@ -198,7 +231,7 @@ button {
 
 .fade-anim.ng-enter,
 .fade-anim.ng-leave {
-  transition: all 0.4s;
+  transition: all .4s;
   opacity: 0; }
 
 .fade-anim.ng-enter.ng-enter-active,
@@ -207,8 +240,8 @@ button {
 
 .fade-anim.ng-leave.ng-leave-active,
 .fade-anim.ng-enter {
-  opacity: 0;
-  width: 0; }
+  width: 0;
+  opacity: 0; }
 
 @media screen and (max-width: 647px) {
   h1 {
@@ -224,32 +257,32 @@ button {
     padding-bottom: 1em; }
 
   .search-movies .search {
-    padding: 1em 20px;
     font-size: 1.5em;
     font-weight: 400;
+    top: -35px;
     width: 90%;
-    margin-left: -45%;
     height: 70px;
-    top: -35px; }
+    margin-left: -45%;
+    padding: 1em 20px; }
   .search-movies #do-search {
     display: none; }
   .search-movies .search-hint {
+    font-size: .95em;
+    line-height: 1;
+    top: -55px;
     width: 90%;
     margin-left: -45%;
-    top: -55px;
-    font-size: 0.95em;
-    text-align: center;
-    line-height: 1; }
+    text-align: center; }
 
-  .popular-movies .movies-thumb-list .movie-item {
+  .list-movies .movies-thumb-list .movie-item {
     width: 33.33333%; }
-    .popular-movies .movies-thumb-list .movie-item h3 {
+    .list-movies .movies-thumb-list .movie-item h3 {
       font-weight: 500; }
-    .popular-movies .movies-thumb-list .movie-item .movie-info {
+    .list-movies .movies-thumb-list .movie-item .movie-info {
       top: 20px; }
-    .popular-movies .movies-thumb-list .movie-item:hover .movie-rating {
+    .list-movies .movies-thumb-list .movie-item:hover .movie-rating {
       top: 35px; }
-    .popular-movies .movies-thumb-list .movie-item:hover .movie-date {
+    .list-movies .movies-thumb-list .movie-item:hover .movie-date {
       top: 55px; } }
 
 /*# sourceMappingURL=style.css.map */

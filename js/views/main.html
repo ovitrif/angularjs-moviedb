@@ -1,9 +1,27 @@
+<div class="search-movies container">
+
+  <div class="search-wrapper">
+      <input name="s" class="search" type="text" placeholder="Filter movies..." ng-model="query" />
+
+      <button id="do-search" type="submit" disabled="disabled">
+        <i class="fa fa-search"></i>
+      </button>
+
+      <p class="search-hint">
+        <i class="fa fa-search"></i>
+        Enter a <strong>movie title</strong> to search for:
+      </p>
+  </div><!-- .search-wrapper -->
+
+</div>
+
+
 <div class="container">
-  <div class="popular-movies row">
+  <div class="list-movies row">
 
     <h2>
       <i class="fa fa-film"></i>
-      Popular Movies
+      {{pageHeading}}
       <span class="tmdb">
         <img alt="tmdb"
              src="//assets.tmdb.org/images/logos/var_4_0_tmdb-logo-1Line-Blk-Bree.svg">
@@ -14,7 +32,7 @@
       <li class="movie-item fade-anim" ng-repeat="movie in moviesList | filter: query">
         <a href="./#/movies/{{movie.id}}">
           <h3>{{movie.title}}</h3>
-          <img ng-src="http://image.tmdb.org/t/p/w370/{{movie.poster_path}}" />
+          <img ng-src="http://image.tmdb.org/t/p/w370/{{movie.poster_path}}" alt="{{movie.title}}" />
 
           <strong class="movie-rating movie-info">
             <i class="fa fa-star"></i>
